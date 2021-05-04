@@ -6,9 +6,10 @@ const pokemonReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_POKEMON:
       nextState = Object.assign({}, state);
-      action.pokemon.forEach((pokemon) => {
-        nextState[pokemon.id] = pokemon.id;
-      });
+      // debugger
+      for (const [k,v] of Object.entries(action.pokemon) ){
+        nextState[k] = v;
+      }
       return nextState;
     default:
       return state;
